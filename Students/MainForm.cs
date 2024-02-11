@@ -31,11 +31,11 @@ namespace Students
             try
             {
                 sqlConnection.Open();
-                txtConnection.Text = "Connected to the database";
+                lblConnection.Text += "Connected to the database";
             }
             catch (Exception ex)
             {
-                txtConnection.Text = $"Error: {ex.Message}";
+                lblConnection.Text += $"Error: {ex.Message}";
             }
             finally
             {
