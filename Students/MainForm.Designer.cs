@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lblConnection = new Label();
             lblTitle = new Label();
             lblName = new Label();
+            lblEmail = new Label();
             txtName = new TextBox();
             txtEmail = new TextBox();
-            lblEmail = new Label();
-            btnSave = new Button();
-            dgvStudents = new DataGridView();
             btnNew = new Button();
-            btnDelete = new Button();
+            btnSave = new Button();
             btnUpdate = new Button();
+            btnDelete = new Button();
+            dgvStudents = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
@@ -77,28 +80,6 @@
             lblName.TabIndex = 3;
             lblName.Text = "Name";
             // 
-            // txtName
-            // 
-            txtName.BackColor = Color.White;
-            txtName.BorderStyle = BorderStyle.None;
-            txtName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtName.ForeColor = Color.FromArgb(64, 64, 64);
-            txtName.Location = new Point(12, 72);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(270, 19);
-            txtName.TabIndex = 4;
-            // 
-            // txtEmail
-            // 
-            txtEmail.BackColor = Color.White;
-            txtEmail.BorderStyle = BorderStyle.None;
-            txtEmail.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.ForeColor = Color.FromArgb(64, 64, 64);
-            txtEmail.Location = new Point(305, 72);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(267, 19);
-            txtEmail.TabIndex = 5;
-            // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
@@ -107,35 +88,31 @@
             lblEmail.Location = new Point(305, 53);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(40, 16);
-            lblEmail.TabIndex = 6;
+            lblEmail.TabIndex = 4;
             lblEmail.Text = "Email";
             // 
-            // btnSave
+            // txtName
             // 
-            btnSave.BackColor = Color.DodgerBlue;
-            btnSave.FlatAppearance.BorderSize = 0;
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.ForeColor = SystemColors.InfoText;
-            btnSave.Location = new Point(472, 153);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(100, 40);
-            btnSave.TabIndex = 9;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = false;
+            txtName.BackColor = Color.White;
+            txtName.BorderStyle = BorderStyle.None;
+            txtName.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.ForeColor = Color.FromArgb(64, 64, 64);
+            txtName.Location = new Point(12, 72);
+            txtName.Name = "txtName";
+            txtName.RightToLeft = RightToLeft.No;
+            txtName.Size = new Size(267, 15);
+            txtName.TabIndex = 5;
             // 
-            // dgvStudents
+            // txtEmail
             // 
-            dgvStudents.BackgroundColor = Color.White;
-            dgvStudents.BorderStyle = BorderStyle.None;
-            dgvStudents.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.GridColor = Color.Silver;
-            dgvStudents.Location = new Point(12, 107);
-            dgvStudents.Name = "dgvStudents";
-            dgvStudents.RowTemplate.Height = 25;
-            dgvStudents.Size = new Size(454, 178);
-            dgvStudents.TabIndex = 12;
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.ForeColor = Color.FromArgb(64, 64, 64);
+            txtEmail.Location = new Point(305, 72);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(267, 15);
+            txtEmail.TabIndex = 6;
             // 
             // btnNew
             // 
@@ -143,27 +120,27 @@
             btnNew.FlatAppearance.BorderSize = 0;
             btnNew.FlatStyle = FlatStyle.Flat;
             btnNew.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNew.ForeColor = SystemColors.InfoText;
+            btnNew.ForeColor = SystemColors.ControlText;
             btnNew.Location = new Point(472, 107);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(100, 40);
-            btnNew.TabIndex = 13;
+            btnNew.TabIndex = 7;
             btnNew.Text = "New";
             btnNew.UseVisualStyleBackColor = false;
             // 
-            // btnDelete
+            // btnSave
             // 
-            btnDelete.BackColor = Color.Red;
-            btnDelete.FlatAppearance.BorderSize = 0;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDelete.ForeColor = SystemColors.InfoText;
-            btnDelete.Location = new Point(472, 245);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(100, 40);
-            btnDelete.TabIndex = 14;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
+            btnSave.BackColor = Color.DodgerBlue;
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSave.ForeColor = SystemColors.ControlText;
+            btnSave.Location = new Point(472, 153);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(100, 40);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
@@ -171,13 +148,80 @@
             btnUpdate.FlatAppearance.BorderSize = 0;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdate.ForeColor = SystemColors.InfoText;
+            btnUpdate.ForeColor = SystemColors.ControlText;
             btnUpdate.Location = new Point(472, 199);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(100, 40);
-            btnUpdate.TabIndex = 15;
+            btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Red;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDelete.ForeColor = SystemColors.ControlText;
+            btnDelete.Location = new Point(472, 245);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(100, 40);
+            btnDelete.TabIndex = 10;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // dgvStudents
+            // 
+            dgvStudents.AllowUserToAddRows = false;
+            dgvStudents.AllowUserToDeleteRows = false;
+            dgvStudents.AllowUserToResizeColumns = false;
+            dgvStudents.AllowUserToResizeRows = false;
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStudents.BackgroundColor = Color.FromArgb(64, 64, 64);
+            dgvStudents.BorderStyle = BorderStyle.None;
+            dgvStudents.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle5.SelectionBackColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvStudents.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvStudents.EnableHeadersVisualStyles = false;
+            dgvStudents.GridColor = Color.LightGray;
+            dgvStudents.Location = new Point(12, 107);
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.SelectionBackColor = Color.LightGray;
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvStudents.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgvStudents.RowHeadersVisible = false;
+            dgvStudents.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgvStudents.RowTemplate.DefaultCellStyle.BackColor = Color.White;
+            dgvStudents.RowTemplate.DefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvStudents.RowTemplate.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
+            dgvStudents.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.LightGray;
+            dgvStudents.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dgvStudents.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvStudents.RowTemplate.Height = 20;
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStudents.Size = new Size(454, 178);
+            dgvStudents.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -185,14 +229,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(584, 311);
-            Controls.Add(btnUpdate);
-            Controls.Add(btnDelete);
-            Controls.Add(btnNew);
             Controls.Add(dgvStudents);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
             Controls.Add(btnSave);
-            Controls.Add(lblEmail);
+            Controls.Add(btnNew);
             Controls.Add(txtEmail);
             Controls.Add(txtName);
+            Controls.Add(lblEmail);
             Controls.Add(lblName);
             Controls.Add(lblTitle);
             Controls.Add(lblConnection);
@@ -211,13 +255,13 @@
         private Label lblConnection;
         private Label lblTitle;
         private Label lblName;
+        private Label lblEmail;
         private TextBox txtName;
         private TextBox txtEmail;
-        private Label lblEmail;
-        private Button btnSave;
-        private DataGridView dgvStudents;
         private Button btnNew;
-        private Button btnDelete;
+        private Button btnSave;
         private Button btnUpdate;
+        private Button btnDelete;
+        private DataGridView dgvStudents;
     }
 }
