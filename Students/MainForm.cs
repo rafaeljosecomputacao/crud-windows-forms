@@ -8,9 +8,9 @@ namespace Students
 {
     public partial class MainForm : Form
     {
-        SqlConnection ?sqlConnection;
-        SqlCommand ?sqlCommand;
-        SqlDataAdapter ?sqlAdapter;
+        SqlConnection? sqlConnection;
+        SqlCommand? sqlCommand;
+        SqlDataAdapter? sqlAdapter;
 
         public MainForm()
         {
@@ -36,11 +36,11 @@ namespace Students
             try
             {
                 sqlConnection.Open();
-                lblConnection.Text += "Connected to the database";
+                lblConnection.Text = "Connection: Connected to the database";
             }
             catch (Exception ex)
             {
-                lblConnection.Text += $"Error: {ex.Message}";
+                lblConnection.Text = $"Error: {ex.Message}";
             }
             finally
             {
@@ -66,11 +66,59 @@ namespace Students
             }
             catch (Exception ex)
             {
-                lblConnection.Text += $"Error: {ex.Message}";
+                lblConnection.Text = $"Error: {ex.Message}";
             }
             finally
             {
                 sqlConnection.Close();
+            }
+        }
+
+        // Clearing all fields
+        private void ClearFields()
+        {
+            txtName.Text = "";
+            txtEmail.Text = "";
+            txtName.Focus();
+        }
+
+        // Creating new student
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        // Saving new student
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // Validating fields
+            if (txtName.Text != "" && txtEmail.Text != "")
+            {
+                // Create
+                string createSql = "INSERT INTO students(name,email) VALUES ('" + txtName.Text + "','" + txtEmail.Text + "')";
+                sqlCommand = new SqlCommand(createSql, sqlConnection);
+                
+                // Attempt to connect to the database
+                try
+                {
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Successfully created student");
+                }
+                catch (Exception ex)
+                {
+                    lblConnection.Text = $"Error: {ex.Message}";
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                    ViewData();
+                    ClearFields();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill in all fields");
             }
         }
     }
