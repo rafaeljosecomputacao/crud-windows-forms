@@ -59,7 +59,7 @@ namespace Students
             // Attempt to connect to the database
             try
             {
-                sqlConnection.Open();
+                sqlConnection?.Open();
                 DataTable dataTable = new DataTable();
                 sqlAdapter = new SqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dataTable);
@@ -71,7 +71,7 @@ namespace Students
             }
             finally
             {
-                sqlConnection.Close();
+                sqlConnection?.Close();
             }
         }
 
@@ -102,7 +102,7 @@ namespace Students
                 // Attempt to connect to the database
                 try
                 {
-                    sqlConnection.Open();
+                    sqlConnection?.Open();
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Successfully created student");
                 }
@@ -112,7 +112,7 @@ namespace Students
                 }
                 finally
                 {
-                    sqlConnection.Close();
+                    sqlConnection?.Close();
                     ViewData();
                     ClearFields();
                 }
@@ -138,16 +138,16 @@ namespace Students
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             // Validating fields
-            if (txtEmail.Text != "" && txtEmail.Text != "")
+            if (txtName.Text != "" && txtEmail.Text != "")
             {
                 // Update
-                string updateSql = "UPDATE students SET name = '"+ txtName.Text + "', email = '" + txtEmail.Text + "' WHERE id = '" + id + "'";
+                string updateSql = "UPDATE students SET name = '" + txtName.Text + "', email = '" + txtEmail.Text + "' WHERE id = '" + id + "'";
                 sqlCommand = new SqlCommand(updateSql, sqlConnection);
 
                 // Attempt to connect to the database
                 try
                 {
-                    sqlConnection.Open();
+                    sqlConnection?.Open();
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Successfully updated student");
                 }
@@ -157,7 +157,7 @@ namespace Students
                 }
                 finally
                 {
-                    sqlConnection.Close();
+                    sqlConnection?.Close();
                     ViewData();
                     ClearFields();
                 }
@@ -165,6 +165,43 @@ namespace Students
             else
             {
                 MessageBox.Show("Fill in all fields");
+            }
+        }
+
+        // Deleting student
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Validating id
+            if (id != 0)
+            {
+                if (MessageBox.Show("Want to delete this student?", "Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    // Delete
+                    string deleteSql = "DELETE students WHERE id = '" + id + "'";
+                    sqlCommand = new SqlCommand(deleteSql, sqlConnection);
+
+                    // Attempt to connect to the database
+                    try
+                    {
+                        sqlConnection?.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        MessageBox.Show("Successfully deleted student");
+                    }
+                    catch (Exception ex)
+                    {
+                        lblConnection.Text = $"Error: {ex.Message}";
+                    }
+                    finally
+                    {
+                        sqlConnection?.Close();
+                        ViewData();
+                        ClearFields();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a student to delete");
             }
         }
     }
