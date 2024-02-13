@@ -157,6 +157,7 @@
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -224,6 +225,7 @@
             dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudents.Size = new Size(454, 178);
             dgvStudents.TabIndex = 11;
+            dgvStudents.CellContentClick += dgvStudents_CellContentClick;
             // 
             // MainForm
             // 

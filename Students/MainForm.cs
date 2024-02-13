@@ -11,6 +11,7 @@ namespace Students
         SqlConnection? sqlConnection;
         SqlCommand? sqlCommand;
         SqlDataAdapter? sqlAdapter;
+        int id = 0;
 
         public MainForm()
         {
@@ -97,13 +98,58 @@ namespace Students
                 // Create
                 string createSql = "INSERT INTO students(name,email) VALUES ('" + txtName.Text + "','" + txtEmail.Text + "')";
                 sqlCommand = new SqlCommand(createSql, sqlConnection);
-                
+
                 // Attempt to connect to the database
                 try
                 {
                     sqlConnection.Open();
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Successfully created student");
+                }
+                catch (Exception ex)
+                {
+                    lblConnection.Text = $"Error: {ex.Message}";
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                    ViewData();
+                    ClearFields();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill in all fields");
+            }
+        }
+
+        // Filling in the text boxes when clicking on a line in data grid view
+        private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Id for the update and delete operations
+            id = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value.ToString());
+            // Clicked student name
+            txtName.Text = dgvStudents.Rows[e.RowIndex].Cells[1].Value.ToString();
+            // Clicked student email
+            txtEmail.Text = dgvStudents.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        // Updating student
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // Validating fields
+            if (txtEmail.Text != "" && txtEmail.Text != "")
+            {
+                // Update
+                string updateSql = "UPDATE students SET name = '"+ txtName.Text + "', email = '" + txtEmail.Text + "' WHERE id = '" + id + "'";
+                sqlCommand = new SqlCommand(updateSql, sqlConnection);
+
+                // Attempt to connect to the database
+                try
+                {
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Successfully updated student");
                 }
                 catch (Exception ex)
                 {
